@@ -15,3 +15,26 @@ form{
   jusitfy-self:center;
   gap:10px;
 }
+.chatdiv{
+  width: 69vw;
+  background: #f7fff6;
+  height: 88vh;
+  display: flex;
+  flex-direction: row;
+}
+.scrolldiv{
+  height: 100%;
+    width: 30%;
+    background: aliceblue;
+}
+.messagediv{
+  height: 100%;
+  width: 70%;
+  background: #fcfcef;
+  display: flex;
+  flex-direction: column;
+  overflow-x: scroll;
+  text-align: -webkit-left;
+  padding: 23px;
+  gap: 13px;
+}

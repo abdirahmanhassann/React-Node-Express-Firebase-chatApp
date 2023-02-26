@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import '../App.css';
 import { Button, TextField,Typography } from '@mui/material'
 import '@fontsource/roboto/300.css';
+import { useNavigate } from 'react-router';
 function Signin() {
   const [po,setpo]=useState<p[]>();
   const [changed,setchanged]=useState({email:null,password:null})
   const [sent,setsent]=useState(false)
+  const navigate=useNavigate()
   interface p{
     name:string;
     age:number;
@@ -36,7 +38,9 @@ function submitted(e){
     .then(changed => {
       console.log(changed);
       if(changed.email && changed.password){
+        localStorage.setItem('Email',changed.email)
         console.log('signed in')
+navigate('/chatpage')
       }
       else{
         console.log('not signed in')
