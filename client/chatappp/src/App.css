@@ -1,0 +1,17 @@
+
+.centerdiv{
+  height:500px;
+  width:fit-content;
+  margin:auto;
+  justify-self:center;
+  display: flex;
+  flex-direction: column;
+gap:20px;
+text-align: center;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  jusitfy-self:center;
+  gap:10px;
+}
