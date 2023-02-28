@@ -1,6 +1,5 @@
 
 .centerdiv{
-  height:500px;
   width:fit-content;
   margin:auto;
   justify-self:center;
@@ -34,6 +33,7 @@ form{
   flex-direction: column;
   padding: 23px;
   gap: 13px;
+  margin: auto;
 }
 .submessage{
   overflow-y: scroll;

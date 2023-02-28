@@ -53,12 +53,15 @@ setMessage((prevmessage)=>[...prevmessage,sendMessage])
 }
 setinput('')
 }
+
+
 useEffect(()=>{
     socket.on('recieve',(data)=>{
+        console.log('recieving from the frontend',data)
     setMessage((prevmessage)=>[...prevmessage,data])
 
 })
-    },[])
+ },[])
         
         
 function submitted(e){
