@@ -30,11 +30,36 @@ form{
 .messagediv{
   height: 100%;
   width: 70%;
-  background: #fcfcef;
   display: flex;
   flex-direction: column;
-  overflow-x: scroll;
-  text-align: -webkit-left;
   padding: 23px;
   gap: 13px;
+}
+.submessage{
+  overflow-y: scroll;
+  text-align: -webkit-left;
+  padding: 10px;
+  height: 487px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.message1{
+  background: azure;
+  width: -moz-fit-content;
+  width: auto;
+  margin-left: 54%;
+  padding: 9px 31px;
+  contain: inline-size;
+  display:flex;
+  flex-direction:column;
+}
+
+.message2{
+  background: lightgrey;
+  width: fit-content;
+  max-width: 50%;
+  padding: 6px 13px;
+  display:flex;
+  flex-direction:column;
 }

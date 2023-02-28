@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Signin/>}/>
         <Route path='/chatpage' element={<Chatpage/>}/>
-        <Route path='/chatpage2' element={<Chatpage2/>}/>
+        {/* <Route path='/chatpage2' element={<Chatpage2/>}/> */}
       </Routes>
     </Router>
     </>
