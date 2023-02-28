@@ -68,7 +68,8 @@ function submitted(e){
 socket.emit('join',room)
 setentered(true)
 socket.on('messages',(data)=>{
-    console.log(data)
+    setMessage(data)
+    console.log(message)
 })
     }
 }
