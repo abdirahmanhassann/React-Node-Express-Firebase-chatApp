@@ -12,7 +12,31 @@ function Chatpage(){
     const [entered,setentered]=useState<Boolean>(false)
     const [message,setMessage]=useState <object[]>([{}])
     const [input,setinput]=useState('')
+
  
+useEffect(()=>{
+function fetchmessages(){
+    const url='http://localhost:5001'
+        const changed:[{}]=[{}]
+        fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(changed),
+        })
+          .then(response => response.json())
+          .then(changed => {
+            console.log(changed);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+          
+      
+}
+},[])
+
     async function  submitted2(e){
         e.preventDefault()
       //  let po=new Date(Date.now()).getHours() +":"+new Date(Date.now()).getMinutes()
@@ -43,6 +67,9 @@ function submitted(e){
         console.log(username,room)
 socket.emit('join',room)
 setentered(true)
+socket.on('messages',(data)=>{
+    console.log(data)
+})
     }
 }
     return (
