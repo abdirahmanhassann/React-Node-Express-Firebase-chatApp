@@ -3,20 +3,19 @@ import'../App.css'
 import  {io} from "socket.io-client";
 import { Button, TextField, Typography } from "@mui/material";
 
-const socket= io('http://localhost:5001')
+const socket= io('http://localhost:5001'|| process.env.PORT)
 
 console.log(socket)
 function Chatpage(){
-    const [username,setusername]=useState<string>('')
     const [room,setroom]=useState<string>('')
     const [entered,setentered]=useState<Boolean>(false)
     const [message,setMessage]=useState <object[]>([{}])
     const [input,setinput]=useState('')
 
- 
+    
 useEffect(()=>{
 function fetchmessages(){
-    const url='http://localhost:5001'
+    const url='http://localhost:5001' || process.env.PORT
         const changed:[{}]=[{}]
         fetch(url, {
           method: 'GET',
@@ -66,8 +65,8 @@ useEffect(()=>{
         
 function submitted(e){
     e.preventDefault()
-    if(username!==''&& room !==''){
-        console.log(username,room)
+    if(room !==''){
+        console.log(room)
 socket.emit('join',room)
 setentered(true)
 socket.on('messages',(data)=>{
@@ -80,9 +79,6 @@ socket.on('messages',(data)=>{
         <>
         <div className="centerdiv">
     <form onSubmit={submitted}>
-    <TextField id="outlined-basic" type='text' label="name" 
-    value={username} onChange={(e)=>{setusername(e.target.value)}} />
-
     <TextField id="outlined-basic" type='text' label="Room id" 
     value={room} onChange={(e)=>{setroom(e.target.value)}}
     />

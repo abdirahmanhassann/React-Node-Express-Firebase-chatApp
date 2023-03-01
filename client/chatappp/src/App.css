@@ -49,17 +49,31 @@ form{
   width: -moz-fit-content;
   width: auto;
   margin-left: 54%;
-  padding: 9px 31px;
+  padding: 6px 13px;
   contain: inline-size;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
 }
 
 .message2{
-  background: lightgrey;
-  width: fit-content;
+  background: #f2f2f2;
+    width: fit-content;
   max-width: 50%;
   padding: 6px 13px;
   display:flex;
   flex-direction:column;
+  border-radius: 10px;
+
+}
+
+
+@media(max-width:800px){
+  .message1 {
+    margin-left: 40%;
+}
+.messagediv{
+  width:100%;
+  padding:0px;
+}
 }

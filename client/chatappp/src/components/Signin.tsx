@@ -14,7 +14,7 @@ function Signin() {
     age:number;
   }
 
-  const url='http://localhost:5001'
+  const url='http://localhost:5001' || process.env.PORT
 
 
 function changedfunc(e){
