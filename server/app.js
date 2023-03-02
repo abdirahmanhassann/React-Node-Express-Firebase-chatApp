@@ -6,13 +6,14 @@ const signin = require('./middleware/signin')
 const messages=require('./middleware/messages')
 const Loadmessages = require('./middleware/loadmessages')
 const app=express()
+const functions=require('firebase-functions')
 app.use(cors())
 app.use(express.json());
 
 const server=http.createServer(app)
 const io=new Server(server,{
     cors:{
-        origin:"http://localhost:3000",
+        origin: process.env.PORT ||"*",
         methods:["GET","POST"],
     }
 })
@@ -35,7 +36,7 @@ app.post('/',signin,(req,res)=>{
 
 io.on("connection",(socket)=>{
     console.log(` user connected ${socket.id}`)
-  
+
     socket.on('join', (data) => {
         Loadmessages(data, (err, messages) => {
           if (err) {
@@ -50,8 +51,10 @@ io.on("connection",(socket)=>{
       });
       
     
-socket.on('send', messages,(data)=>{
-socket.to(data.room).emit('recieve',data)
+socket.on('send',(data)=>{
+    messages(data)
+    console.log(data,'from messages')
+return socket.to(data.room).emit('recieve',data)
 
 })
    
@@ -61,6 +64,8 @@ socket.on("disconnect",()=>{
 
 })
 
-server.listen(5001,()=>{
+server.listen( process.env.PORT || 5001 ,()=>{
     console.log('app is listening...')
 })
+
+exports.api=functions.http.onRequest(app)

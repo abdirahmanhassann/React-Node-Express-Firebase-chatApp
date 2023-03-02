@@ -3,7 +3,6 @@ const { FieldValue } = require('firebase-admin/firestore');
 // const  getDocs  = require("firebase/firestore/getDocs");
 
 const messages= async(data,next)=>{
-   console.log("messages middleware",data)
 
    const  usersCollectionRef=db.collection('chats')
    const snapshot = await usersCollectionRef.get()

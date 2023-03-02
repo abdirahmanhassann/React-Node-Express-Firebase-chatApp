@@ -15,7 +15,7 @@ function Chatpage(){
     
 useEffect(()=>{
 function fetchmessages(){
-    const url='http://localhost:5001' || process.env.PORT
+    const url=process.env.PORT || "http://localhost:5001"
         const changed:[{}]=[{}]
         fetch(url, {
           method: 'GET',
@@ -38,13 +38,13 @@ function fetchmessages(){
 
     async function  submitted2(e){
         e.preventDefault()
-      //  let po=new Date(Date.now()).getHours() +":"+new Date(Date.now()).getMinutes()
+       let po=new Date(Date.now()).getHours() +":"+new Date(Date.now()).getMinutes()
 if(input!==''){
 const sendMessage={
     message:input,
     room:room,
     author:localStorage.getItem('Email'),
-    time:'19:20'
+    time:po
 }
 console.log(sendMessage)
 await socket.emit('send',sendMessage)

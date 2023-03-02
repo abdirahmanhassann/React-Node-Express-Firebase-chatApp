@@ -7,7 +7,7 @@ const Loadmessages = async (data, callback) => {
     const po = await usersCollectionRef.get();
     if (po) {
       console.log(po.data().messages);
-      callback(null, po.data().messages);
+      callback(null, po.data()?.messages);
     } else {
       console.log('po doesnt exist');
       callback(new Error('Chat room not found'), null);
